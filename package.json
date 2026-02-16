@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "prisma": {
+    "seed": "tsx prisma/seeds.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,5 +20,8 @@
     "ra-data-simple-rest": "^5.14.2",
     "react-admin": "^5.14.2",
     "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3"
   }
 }
