@@ -4,10 +4,13 @@ import { CategoryCreateSchema } from "@/lib/schemas";
 
 export async function GET() {
   const categories = await prisma.category.findMany();
-  return NextResponse.json({
+  const total = categories.length;
+  const res = NextResponse.json({
     data: categories,
-    total: categories.length,
+    total,
   });
+  res.headers.set("Content-Range", `categories 0-${total ? total - 1 : 0}/${total}`);
+  return res;
 }
 
 export async function POST(request: Request) {
