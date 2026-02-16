@@ -7,21 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prisma": {
-    "seed": "tsx prisma/seeds.ts"
+    "seed": "npx tsx prisma/seeds.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.4.0",
     "@prisma/client": "^7.4.0",
     "date-fns": "^4.1.0",
+    "pg": "^8.18.0",
     "prisma": "^7.4.0",
     "ra-data-simple-rest": "^5.14.2",
     "react-admin": "^5.14.2",
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/node": "^25.2.3"
+    "@types/node": "^25.2.3",
+    "tsx": "^4.21.0"
   }
 }
