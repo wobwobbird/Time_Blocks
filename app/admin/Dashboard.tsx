@@ -87,6 +87,15 @@ export default function Dashboard() {
     return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
   };
 
+  const last7ByCategory = (() => {
+    const map = new Map<string, number>();
+    for (const e of recentEntries) {
+      const name = e.categoryName ?? String(e.categoryId);
+      map.set(name, (map.get(name) ?? 0) + e.durationHours);
+    }
+    return [...map.entries()].map(([name, hours]) => ({ name, hours })).sort((a, b) => b.hours - a.hours);
+  })();
+
   return (
     <Box sx={{ p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
@@ -118,6 +127,25 @@ export default function Dashboard() {
               </Typography>
               <Box component="ul" sx={{ m: 0, pl: 2 }}>
                 {weekly.byCategory.map(({ name, hours }) => (
+                  <li key={name}>
+                    <Typography component="span">{name}: </Typography>
+                    <Typography component="span" fontWeight="medium">
+                      {hours.toFixed(1)} h
+                    </Typography>
+                  </li>
+                ))}
+              </Box>
+            </CardContent>
+          </Card>
+        )}
+        {last7ByCategory.length > 0 && (
+          <Card sx={{ minWidth: 280, flex: "1 1 300px" }}>
+            <CardContent>
+              <Typography color="text.secondary" gutterBottom>
+                Last 7 days by category
+              </Typography>
+              <Box component="ul" sx={{ m: 0, pl: 2 }}>
+                {last7ByCategory.map(({ name, hours }) => (
                   <li key={name}>
                     <Typography component="span">{name}: </Typography>
                     <Typography component="span" fontWeight="medium">

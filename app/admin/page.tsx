@@ -39,8 +39,15 @@ const CategoryCreate = () => (
   </Create>
 );
 
+const timeEntryFilters = [
+  <DateInput source="date" key="date" />,
+  <ReferenceInput source="categoryId" reference="categories" key="categoryId">
+    <SelectInput optionText="name" />
+  </ReferenceInput>,
+];
+
 const TimeEntryList = () => (
-  <List>
+  <List filters={timeEntryFilters}>
     <Datagrid rowClick={false}>
       <DateField source="date" showTime={false} />
       <TextField source="categoryName" />

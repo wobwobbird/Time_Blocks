@@ -4,8 +4,20 @@ import { TimeEntryCreateSchema } from "@/lib/schemas";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const dateParam = searchParams.get("date");
-  const categoryIdParam = searchParams.get("categoryId");
+  let dateParam = searchParams.get("date");
+  let categoryIdParam = searchParams.get("categoryId");
+
+  // React Admin simple REST sends filters as JSON in "filter" query param
+  const filterParam = searchParams.get("filter");
+  if (filterParam) {
+    try {
+      const filter = JSON.parse(filterParam) as Record<string, unknown>;
+      if (filter.date != null) dateParam = String(filter.date);
+      if (filter.categoryId != null) categoryIdParam = String(filter.categoryId);
+    } catch {
+      // ignore invalid JSON
+    }
+  }
 
   const where: { date?: { gte: Date; lt: Date }; categoryId?: number } = {};
 
