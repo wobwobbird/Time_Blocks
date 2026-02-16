@@ -33,8 +33,5 @@ export async function POST(request: Request) {
     data: { name: result.data.name },
   });
 
-  return NextResponse.json(
-    { data: createdCategory },
-    { status: 201 }
-  );
+  return NextResponse.json(createdCategory, { status: 201 });
 }

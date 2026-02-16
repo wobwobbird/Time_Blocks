@@ -135,5 +135,5 @@ export async function POST(request: Request) {
     },
   });
 
-  return NextResponse.json({ data: createdEntry }, { status: 201 });
+  return NextResponse.json(createdEntry, { status: 201 });
 }

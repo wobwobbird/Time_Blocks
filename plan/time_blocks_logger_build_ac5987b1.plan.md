@@ -116,15 +116,6 @@ Use `ra-data-simple-rest` pointing at your API base (e.g. `/api`). Ensure:
 
 **Deliverable:** Admin loads; categories and time entries are viewable (list + create from admin if POST is wired).
 
-
-
-
-
-
-
-
-
-
 ---
 
 ## Hour 4: Forms + filters + duration dropdown
