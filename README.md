@@ -1,6 +1,21 @@
 # Time Blocks Logger
 
-Time-tracking app: Next.js (App Router), Prisma, Supabase Postgres, React Admin. Log time by category with daily/weekly totals and a 24h-per-day guard.
+> **Note:** I used AI tools to help build this project, but I wanted to gain hands-on experience across the stack—Next.js, React Admin, Prisma, Supabase, and the rest—so I could learn by doing in each of those areas.
+
+---
+
+**Time Blocks Logger** is a small time-tracking app: log time by category (e.g. Coding, Learning, Game Dev), see daily and weekly totals, and enforce a 24-hour-per-day limit so you can’t over-log a single day.
+
+It’s built with **Next.js** (App Router), **Prisma**, **Supabase** (Postgres), **React Admin** for the admin UI, and **Zod** for validation—a good mix for practicing full-stack and admin tooling.
+
+---
+
+## What’s in the repo
+
+- **App (Next.js):** Main app at `/`; admin UI at `/admin`.
+- **Admin:** React Admin for **Categories** and **Time Entries** (list + create). A custom dashboard shows today’s and this week’s totals and recent entries.
+- **APIs:** Time-entry ingestion, categories CRUD, time entries list/create, and **daily** and **weekly** totals.
+- **Rules:** Categories must exist before logging time; each day is capped at 24 hours (API returns 400 if you’d exceed it).
 
 ---
 
@@ -89,8 +104,14 @@ Response (201): `{ "data": { ... }, "dailyTotalHours": 2 }`. If the category doe
 
 ---
 
-## Deliverables (Hour 5)
+## Tech used
 
-- Daily and weekly totals in API (`/api/totals/daily`, `/api/totals/weekly`) and on the admin dashboard.
-- 24h/day validation on POST time-entry and POST time-entries.
-- This README for handover/interview.
+- **Next.js 15** (App Router, Turbopack in dev)
+- **React 19**
+- **Prisma 7** + **Supabase** (Postgres)
+- **React Admin** + **ra-data-simple-rest**
+- **Zod** (validation), **date-fns** (dates), **Material UI** (admin dashboard)
+
+---
+
+If you clone this and run it, you’ll need a Postgres DB (e.g. Supabase) and the env vars above. Have fun tweaking it.
