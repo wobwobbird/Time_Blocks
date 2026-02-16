@@ -46,7 +46,7 @@ export async function GET(request: Request) {
   }));
 
   const total = data.length;
-  const res = NextResponse.json({ data, total });
+  const res = NextResponse.json(data);
   res.headers.set("Content-Range", `time_entries 0-${total ? total - 1 : 0}/${total}`);
   return res;
 }
