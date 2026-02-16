@@ -111,6 +111,20 @@ export async function POST(request: Request) {
   }
 
   const dateObj = new Date(result.data.date + "T00:00:00.000Z");
+  const endOfDay = new Date(dateObj);
+  endOfDay.setUTCDate(endOfDay.getUTCDate() + 1);
+
+  const aggregate = await prisma.timeEntry.aggregate({
+    where: { date: { gte: dateObj, lt: endOfDay } },
+    _sum: { durationHours: true },
+  });
+  const currentSum = aggregate._sum.durationHours ?? 0;
+  if (currentSum + result.data.durationHours > 24) {
+    return NextResponse.json(
+      { error: "Daily total would exceed 24 hours" },
+      { status: 400 }
+    );
+  }
 
   const createdEntry = await prisma.timeEntry.create({
     data: {
