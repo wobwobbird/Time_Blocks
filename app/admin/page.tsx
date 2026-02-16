@@ -18,6 +18,7 @@ import {
   SelectInput,
 } from 'react-admin';
 import simpleRestProvider from 'ra-data-simple-rest';
+import Dashboard from './Dashboard';
 
 const dataProvider = simpleRestProvider('/api');
 
@@ -75,7 +76,7 @@ export default function AdminPage() {
   }
 
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} dashboard={Dashboard}>
       <Resource name="categories" list={CategoryList} create={CategoryCreate} />
       <Resource name="time_entries" list={TimeEntryList} create={TimeEntryCreate} />
     </Admin>
