@@ -1,7 +1,5 @@
 # Time Blocks Logger
 
----
-
 **Time Blocks Logger** is a small time-tracking app: log time by category (e.g. Coding, Learning, Game Dev), see daily and weekly totals, and enforce a 24-hour-per-day limit so you can’t over-log a single day.
 
 It’s built with **Next.js** (App Router), **Prisma**, **Supabase** (Postgres), **React Admin** for the admin UI, and **Zod** for validation—a good mix for practicing full-stack and admin tooling.
