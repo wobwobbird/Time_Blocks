@@ -1,12 +1,18 @@
 # Time Blocks Logger
 
-> **Note:** I used AI tools to help build this project, but I wanted to gain hands-on experience across the stack—Next.js, React Admin, Prisma, Supabase, and the rest—so I could learn by doing in each of those areas.
-
 ---
 
 **Time Blocks Logger** is a small time-tracking app: log time by category (e.g. Coding, Learning, Game Dev), see daily and weekly totals, and enforce a 24-hour-per-day limit so you can’t over-log a single day.
 
 It’s built with **Next.js** (App Router), **Prisma**, **Supabase** (Postgres), **React Admin** for the admin UI, and **Zod** for validation—a good mix for practicing full-stack and admin tooling.
+
+> **Note:** I used AI tools to help build this project, but I wanted to gain hands-on experience across the stack—Next.js, React Admin, Prisma, Supabase, and the rest—so I could learn by doing in each of those areas.
+
+---
+
+## Check it out
+
+![Dashboard demo](github/admin_dashboard_demo.gif)
 
 ---
 
