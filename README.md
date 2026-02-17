@@ -4,6 +4,8 @@
 
 It’s built with **Next.js** (App Router), **Prisma**, **Supabase** (Postgres), **React Admin** for the admin UI, and **Zod** for validation—a good mix for practicing full-stack and admin tooling.
 
+[![My Skills](https://skillicons.dev/icons?i=javascript,nextjs,prisma,postgres)](https://skillicons.dev)  
+
 > **Note:** I used AI tools to help build this project, but I wanted to gain hands-on experience across the stack: Next.js, React Admin, Prisma, Supabase, and the rest. This allows me to learn by doing in each of those areas.
 
 ---
